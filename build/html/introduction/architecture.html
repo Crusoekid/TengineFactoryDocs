@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>架构设计 &mdash; TengineFactory 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="示例展示" href="example.html" />
+    <link rel="prev" title="介绍" href="summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TengineFactory
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">简介</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">介绍</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">架构设计</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#framework">Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline">PipeLine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">示例展示</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速开始</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/compile_tengine.html">编译Tengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/compile_tenginefactory.html">编译TengineFactory</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API文档</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">执行算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/jsonconfig.html">配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">贡献内容</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution/commit.html">贡献内容</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ChangeLog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../note/changelog.html">ChangeLog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../note/faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TengineFactory</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>架构设计</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/introduction/architecture.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>架构设计<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>TengineFactory采用Json + Pipeline的设计方式。</p>
+<p>Json文件用于配置算法的参数以及如何运行整体落地算法。TengineFactory内部提供了多个前处理，后处理的方式，你可以通过配置选择你所需的前处理、后处理、输入输出，来完成整体算法的落地。</p>
+<p>Pipeline是管道方式运行算法的流，包含create、preprocess、run、postprocess、destory，每个pipeline都继承base，所以按照如此方式，方便插入个性化的pipeline。我们也会补充各种统一化的算法的pipeline进去。</p>
+<p>具体结构如下图：</p>
+<div class="section" id="framework">
+<h2>Framework<a class="headerlink" href="#framework" title="永久链接至标题">¶</a></h2>
+<p><img alt="framework" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/tenginefactory/framework.png" /></p>
+</div>
+<div class="section" id="pipeline">
+<h2>PipeLine<a class="headerlink" href="#pipeline" title="永久链接至标题">¶</a></h2>
+<p><img alt="pipeline" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/tenginefactory/pipeline.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="example.html" class="btn btn-neutral float-right" title="示例展示" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="summary.html" class="btn btn-neutral float-left" title="介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2021-2031, OPEN AI LAB, Inc &amp; contributors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
