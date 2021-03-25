@@ -1,9 +1,9 @@
-# 示例展示
+# Sample Display
 
-## 人脸检测&关键点
+## Face Detect & Face Landmark
 
-原始图片：
+Origin Image：
 ![origin](../images/detect_0.jpg)
 
-算法结果：
+Algorithm Result：
 ![result](../images/detect_1.jpg)

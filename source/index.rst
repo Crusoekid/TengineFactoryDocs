@@ -9,7 +9,7 @@ Welcome to TengineFactory's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: 简介
+   :caption: Introduction
    :name: sec-introduction
 
    /introduction/summary
@@ -18,7 +18,7 @@ Welcome to TengineFactory's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: 快速开始
+   :caption: Quick Start
    :name: sec-quickstart
 
    quickstart/compile_tengine
@@ -26,7 +26,7 @@ Welcome to TengineFactory's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: API文档
+   :caption: API Documentation
    :name: sec-api
 
    api/api
@@ -34,7 +34,7 @@ Welcome to TengineFactory's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: 贡献内容
+   :caption: Contribution
    :name: sec-contribution
 
    contribution/commit

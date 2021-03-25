@@ -1,22 +1,22 @@
-# 编译Tengine
+# Build Tengine
 
-## 环境要求
+## Environmental requirements
 - opencv >= 3.4
 - cmake >= 3.10
 - protobuf >= 3.0
 - gcc >= 4.9
-- ndk >= 15c （如果需要使用Android）
+- ndk >= 15c （If Use Android）
 
-## 编译Linux版本
-1. clone [Tengine](https://github.com/OAID/Tengine)项目，`git clone https://github.com/OAID/Tengine.git`
-2. 编译动态库。
+## Build Linux version
+1. clone [Tengine](https://github.com/OAID/Tengine) project，`git clone https://github.com/OAID/Tengine.git`
+2. build dynamic library.
 ```bash
 cd Tengine
 mkdir build && cd build
 cmake .. && make -j4
 make install
 ```
-编译完成后build/install/lib目录会生成`libtengine-lite.so`文件，如下所示：
+After the compilation is complete, the build/install/lib directory will generate a `libtengine-lite.so` file, as shown below:
 ```Text
 install
 ├── bin
@@ -29,23 +29,23 @@ install
     └── libtengine-lite.so
 ```
 
-## 编译Androidv7/v8版本
-下载ndk，[http://developer.android.com/ndk/downloads/index.html](http://developer.android.com/ndk/downloads/index.html)     
-（可选）删除debug参数，缩小二进制体积。android.toolchain.cmake 这个文件可以从 $ANDROID_NDK/build/cmake 找到
+## Build Androidv7/v8 version
+Download ndk, [http://developer.android.com/ndk/downloads/index.html](http://developer.android.com/ndk/downloads/index.html)
+(Optional) Delete the debug parameter to reduce the binary size. The file android.toolchain.cmake can be found from $ANDROID_NDK/build/cmake.
 ```bash
 # vim $ANDROID_NDK/build/cmake/android.toolchain.cmake
-# 删除 "-g" 这行
+# delete "-g" line
 list(APPEND ANDROID_COMPILER_FLAGS
   -g
   -DANDROID
 ```
 
-配置环境：
+Configuration Environment:
 ```bash
 export $ANDROID_NDK=<NDK-path>
 ```
 
-Android v7编译指令：
+Android v7 build command:
 ```bash
 mkdir build-android-armv7
 cd build-android-armv7
@@ -54,7 +54,7 @@ make
 make install
 ```
 
-Android v8编译指令：
+Android v8 build command：
 ```bash
 mkdir build-android-aarch64
 cd build-android-aarch64
@@ -63,4 +63,4 @@ make
 make install
 ```
 
-<b>编译成功后，把libtengine-lite.so 拷贝到`<Tengine-Factory-path>/libs`下</b>
+<b>After successful compilation, copy libtengine-lite.so to `<Tengine-Factory-path>/libs`</b>

@@ -1,4 +1,4 @@
-# 执行算法
+# Execution Algorithm
 
 ```c++
     /**
@@ -7,9 +7,9 @@
      */
     static TFactoryProcess* create();
 ```
-<b> 必须先进行create操作，api都是基于这个handler的。建议只创建一次多次使用。</b>
+<b> The create operation must be performed first, and the api is based on this handler. We recommend you only create it once and use it multiple times.</b>
 
-## 初始化
+## Initialization
 ```c++
     /**
      * @brief Initialize Tengine Factory.
@@ -19,9 +19,9 @@
     void init(const char* jsonPath);
 ```
 
-## 运行
-有两种方式进行输入的传入：
-- 通过json配置，配置文件路径或者视频流。参数为第几张图片。      
+## Run
+There are two ways to input input:
+- Through json configuration, configuration file path or video stream. The parameter is the first picture.     
 
 ```c++
     /**
@@ -32,7 +32,7 @@
     void run(int index = -1);
 ```
 
-- 通过传入输入参数的方式。      
+- By sending input data.
 
 ```c++
     /**
@@ -45,7 +45,7 @@
     void runWithData(uint8_t* input_data, int width, int height);
 ```
 
-## 获取输出
+## Get Output
 ```c++
     /**
      * @brief Get Tengine Factory Output.
@@ -53,11 +53,11 @@
      */
     TFactoryComponent* getComponents();
 ```
-<b> 对于每个图像的输入，都会输出一个`TFactoryComponent`。</b>
+<b> For each image input, a `TFactoryComponent` will be output. </b>
 
 ![TFactoryComponent](https://openailab.oss-cn-shenzhen.aliyuncs.com/tenginefactory/component.png)
 
-通过下面的方式获取输入图像的宽、高、通道、以及数据。
+Obtain the width, height, channel, and data of the input image in the following way.
 ```c++
     TFactory::TFactoryComponent *com = interProcess->getComponents();
     int image_w = com->width();
@@ -66,9 +66,9 @@
     uint8_t *input_data = com->buffer();
 ```
 
-<h3> 获取每个算法的输出：</h3>
-有两种方式：
-- 传入算法的名称，也就是json文件里面配置的。        
+<h3> Get the outputs of each algorithm:：</h3>
+There are two ways:
+- The name of the incoming algorithm, which is configured in the json file.        
 
 ```c++
     /**
@@ -79,7 +79,7 @@
     FunctionComponent* componentOutput(std::string functionName);
 ```
 
-- 获取所有的算法输出。
+- Get all the algorithm outputs.
 
 ```c++
     /**
@@ -89,7 +89,7 @@
     std::vector<FunctionComponent*> getComponentsOutput();
 ```
 
-<b> 输出为`FunctionComponent`为一个数据结构。</b>
+<b> The output is `FunctionComponent` as a data structure.</b>
 
 
 ```c++
@@ -104,7 +104,7 @@
     };
 ```
 
-## 释放
+## Release
 ```c++
     /**
      * @brief Release Tengine Factory.
@@ -112,9 +112,9 @@
      */
     void release();
 ```
-<b> 记得释放，否则会造成内存泄漏。</b>
+<b> Remember to release, otherwise it will cause a memory leak.</b>
 
-## 获取图像数量
+## Images Number
 ```c++
     /**
      * @brief Get image count in folder.
