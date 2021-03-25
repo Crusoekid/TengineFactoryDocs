@@ -53,7 +53,7 @@
      */
     TFactoryComponent* getComponents();
 ```
-> 对于每个图像的输入，都会输出一个`TFactoryComponent`。
+<b> 对于每个图像的输入，都会输出一个`TFactoryComponent`。</b>
 
 ![TFactoryComponent](https://openailab.oss-cn-shenzhen.aliyuncs.com/tenginefactory/component.png)
 
@@ -89,7 +89,7 @@
     std::vector<FunctionComponent*> getComponentsOutput();
 ```
 
-> 输出为`FunctionComponent`为一个数据结构。
+<b> 输出为`FunctionComponent`为一个数据结构。</b>
 
 
 ```c++
