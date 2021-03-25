@@ -6,15 +6,10 @@
 Welcome to TengineFactory's documentation!
 ==========================================
 
-.. meta::
-   :description lang=en: Automate building, versioning, and hosting of your technical documentation continuously on Read the Docs.
-
-*请在页面左下角选择特定版本的文档。*
 
 .. toctree::
    :maxdepth: 2
    :caption: 简介
-   :hidden:
    :name: sec-introduction
 
    /introduction/summary
@@ -24,7 +19,6 @@ Welcome to TengineFactory's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: 快速开始
-   :hidden:
    :name: sec-quickstart
 
    quickstart/compile_tengine
@@ -33,7 +27,6 @@ Welcome to TengineFactory's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: API文档
-   :hidden:
    :name: sec-api
 
    api/api
@@ -42,7 +35,6 @@ Welcome to TengineFactory's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: 贡献内容
-   :hidden:
    :name: sec-contribution
 
    contribution/commit
@@ -50,7 +42,6 @@ Welcome to TengineFactory's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: ChangeLog
-   :hidden:
    :name: sec-changelog
 
    note/changelog
@@ -58,7 +49,6 @@ Welcome to TengineFactory's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: FAQ
-   :hidden:
    :name: sec-faq
 
    note/faq
